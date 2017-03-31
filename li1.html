@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加和删除节点</title>
+		<style>
+			#box{width: 100%;}
+			.fp{display: block;background:red;padding: 10px;float: left;color: #fff;margin: 10px;}
+			
+		</style>
+		<script>
+			window.onload = function(){
+				var	but = document.getElementsByTagName("button");
+				var box = document.getElementById("box");
+				var fp = document.getElementsByClassName("fp")
+				
+				
+				but[0].onclick =function(){
+					var Txt = document.getElementById("Txt");
+					var	vat = Txt.value;
+					if(vat == ""){
+						alert("不可为空，请输入确切数字！")
+					}else if(isNaN(vat)){			//isNaN，检测是否为数字，不是数字返回真，是数字返回假
+						alert("输入有误，仅允许数字！")
+					}else{
+						var xx = document.createElement("p");
+						xx.innerHTML = vat;
+						box.insertBefore(xx,fp[0]);
+						xx.className = "fp";
+					}
+				}
+				
+				
+				but[1].onclick =function(){
+					var Txt = document.getElementById("Txt");
+					var	vat = Txt.value;
+					if(vat == ""){
+						alert("请输入确切数值！")
+					}else if(isNaN(vat)){
+						alert("输入有误，仅允许数字！")
+					}else{
+						var xx = document.createElement("p");
+						xx.innerHTML = vat;
+						box.appendChild(xx);
+						xx.className = "fp";
+					}
+				}
+				
+				
+				but[2].onclick =function(){
+					if(fp.length <1){
+						alert("没有要删除的数值啦！")
+					}else{
+						box.removeChild(fp[0]);
+					}
+				}
+				
+				
+				
+				but[3].onclick =function(){
+					if(fp.length <1){
+						alert("没有要删除的数值啦！")
+					}else{
+						box.removeChild(fp[fp.length-1]);
+					}
+				}
+				
+				
+				
+			
+				box.onclick = function(){funcc()}
+				function funcc(){
+				var	fp = document.getElementsByClassName("fp");	
+				for(var i=0;i<fp.length;i++){
+					fp[i].onclick = function(){
+					box.removeChild(this);
+					}
+				}
+			}
+				
+				
+				but[4].onclick =function(){
+					var i = Math.round(Math.random()*10);
+					Txt.value = i;					
+				}
+		}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="Txt"/>
+		<button>左侧入</button>
+		<button>右侧入</button>
+		<button>左删除</button>
+		<button>右删除</button>
+		<button>添加随机数</button>
+		<div id="box">
+		</div>
+	</body>
+</html>
