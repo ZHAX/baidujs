@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				var but = document.getElementsByTagName("button");
+				var zbox = document.getElementById("zbox");
+				var boxxs = document.getElementsByClassName("boxx_s");
+				but[0].onclick=function(){
+					var boxxs = document.getElementsByClassName("boxx_s");
+					if(boxxs.length>=50){
+						return;
+					}
+					for(var i=0;i<50;i++){
+						var z = Math.round(Math.random()*100);
+						
+						if(z == 0){
+							z++;
+						}	
+						var divs = document.createElement("div");	
+						zbox.appendChild(divs);		
+						divs.className = "boxx_s";		
+						divs.style.height = z*3+"px";	
+						divs.style.top = 300-z*3+"px";
+					}
+				}
+				
+				
+				
+				but[1].onclick=function(){
+					var boxxs = document.getElementsByClassName("boxx_s");
+					for(var i=0;i<boxxs.length;i++){
+						for(var x=i-1;x>=0;x--){
+							var one = boxxs[x+1].offsetHeight,				
+							 	two = boxxs[x].offsetHeight;					
+							if(one < two){
+								boxxs[x+1].style.height = two+"px";
+								boxxs[x+1].style.top = 300-two+"px";
+								boxxs[x].style.height = one+"px";
+								boxxs[x].style.top = 300-one+"px";
+								var z = boxxs[x+1];
+								boxxs[x+1] = boxxs[x];
+								boxxs[x]=z;							//插入排序的可视化真的不会搞，等学习好了再来搞吧……手动哭泣~
+							}
+						}
+					}
+				}
+				var sd = setTimeout(function(){alert("爱你呦~")},2000);
+			}
+		</script>
+		<style>
+			#box{width: 500px;margin:100px auto;}
+			button{margin-left: 130px;}
+			#zbox{width: 1100px;height: 300px; border: 1px solid #9b1cea;padding-left: 35px;margin: auto;}
+			.boxx_s{width: 13px;background:#c44f00;margin: 0 4px;position:relative;float: left;height: 100px;top:0px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button>随机50组</button>
+			<button>开始排序</button>
+		</div>
+		<div id="zbox">
+		
+		</div>
+	</body>
+</html>
