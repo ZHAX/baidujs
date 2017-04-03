@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{width: 600px;margin: 100px auto;}
+			span{font-size: 17px;font-weight: bold;margin-right: 20px;}
+			button{width: 60px;height: 42px; border: 0;border-radius: 5px;background: #2e79bc;color: #fff;font-size: 14px;margin:20px;outline: none;}
+			button:hover{background: #2e61bc;}
+			p{color: #ccc;font-size: 14px;position: relative;top:-20px;left: 80px;}
+			input{width: 360px; height: 40px;border-radius: 5px;background: transparent;border: 1px solid #ccc;outline: none;padding: 0 20px;}
+		</style>
+		<script>
+			window.onload = function(){
+				var names = document.getElementById("names");
+				var but = document.getElementById("but");
+				var pp = document.getElementsByTagName("p");
+				names.onfocus = function(){
+					names.style.border = "1px solid #2e79bc"
+				}
+				
+				function sem(str){
+					//d.replace(/\w\u4e00-\u9fa5/g,xx)		//中文编码
+					return str.replace(/[^\x00-xff]/g,"xx").length;
+				}
+				
+				but.onclick = function(){
+					if(names.value==""){
+						pp[0].style.color = "#dd0010";
+						pp[0].innerHTML = "姓名不能为空！"
+						pp[0].style.fontFamily = "黑体";
+						names.style.border = "1px solid #dd0010";
+					}else if(sem(names.value)<4){
+						pp[0].style.color = "#dd0010";
+						pp[0].innerHTML = "少于4个字符！"
+						pp[0].style.fontFamily = "黑体";
+						names.style.border = "1px solid #dd0010";
+					}else if(sem(names.value)>16){
+						pp[0].style.color = "#dd0010";
+						pp[0].innerHTML = "大于16个字符！"
+						pp[0].style.fontFamily = "黑体";
+						names.style.border = "1px solid #dd0010";
+					}else{
+						pp[0].style.color = "#60bb44";
+						pp[0].innerHTML = "格式正确，验证成功！"
+						pp[0].style.fontFamily = "黑体";
+						names.style.border = "1px solid #60bb44";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span>姓名：</span>
+			<input type="text" id="names"/>
+			<button id="but">验证</button>
+			<p>必填，长度为4-16个字符！</p>
+		</div>
+	</body>
+</html>
