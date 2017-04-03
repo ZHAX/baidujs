@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload =function(){
+				sem();
+				alert("简略版，亲，温柔对待哦！");
+				var but = document.getElementsByTagName("button");
+				var xfang = document.getElementById("xfang");
+				var x = 3;//数字参照css，上右下左
+				var stm = null;
+				 	xtop = -255,
+				 	xleft = 253;
+				 	
+				but[0].onclick = function(){
+					clearInterval(stm);
+					if(xtop<-455){
+						alert("到顶了呢~")
+						return;
+					}
+					if( x!=1){
+						xfang.style.transform = "rotate(180deg)";
+						x = 1;
+					}
+					var i = xtop-50;
+					stm = setInterval(function(){
+						xtop--;
+						xfang.style.top = xtop+"px";
+						if(xtop <= i){
+							clearInterval(stm);
+						}
+					},5)
+				}
+				
+				but[1].onclick = function(){
+					clearInterval(stm);
+					if(xtop>-105){
+						alert("到顶了呢~")
+						return;
+					}
+					if(x != 3){
+						xfang.style.transform = "rotate(0deg)";
+						x = 3;
+					}
+					var i = xtop+50;
+					stm = setInterval(function(){
+						xtop++;
+						xfang.style.top = xtop+"px";
+						if(xtop >= i){
+							clearInterval(stm);
+						}
+					},5)
+				}
+				
+				but[2].onclick = function(){
+					clearInterval(stm);
+					if(xleft <　53){
+						alert("到顶了呢~")
+						return;
+					}
+					if(x != 4){
+						xfang.style.transform = "rotate(90deg)";
+						x = 4;
+					}
+					var i = xleft-50;
+					stm = setInterval(function(){
+						xleft--;
+						xfang.style.left= xleft+"px";
+						if(xleft <= i){
+							clearInterval(stm);
+						}
+					},5)
+				}
+				
+				but[3].onclick = function(){
+					if(xleft >403){
+						alert("到顶了呢~")
+						return;
+					}
+					clearInterval(stm);
+					if(x != 2){
+						xfang.style.transform = "rotate(270deg)";
+						x = 2;
+					}
+					var i = xleft+50;
+					stm = setInterval(function(){
+						xleft++;
+						xfang.style.left= xleft+"px";
+						if(xleft >= i){
+							clearInterval(stm);
+						}
+					},5)
+				}
+				but[4].onclick = function(){
+					alert("你被骗了~~这个我没写~~~哈哈哈");
+				}
+			}
+			
+			function sem(){	
+				var c=document.getElementById("myCanvas");
+				var cxt=c.getContext("2d");
+				cxt.fillStyle="#fff";
+				cxt.fillRect(0,0,500,500);
+				var z=50;
+				for(var i = 0;i<9;i++){
+					cxt.moveTo(0,z);
+					cxt.lineTo(500,z);
+					cxt.moveTo(z,0);
+					cxt.lineTo(z,500);
+					z+=50;
+					cxt.stroke();
+				}
+			}
+			
+		</script>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{width: 502px;height:1000px;margin: 100px auto;}
+			#myCanvas{border: 2px solid #202020;}
+			#one1{width: 48px;height: 40px;background: red;}
+			#two2{width: 48px;height: 8px;background: blue;}
+			#hen li{float: left;margin-left: 40px;list-style:none;}
+			#hen{position: relative;top:-585px;left:-21px;width: 600px;}
+			#shu li{margin: 5px;list-style:none;margin-bottom:29px ;}
+			#shu{position: relative;top:-560px;left:-30px;}
+			#xfang{width: 48px;height: 48px;position: relative;top:-255px;left:253px;transition: all 0.3s;border-radius:8px 8px 30px 30px;overflow: hidden;}
+			input{width: 353px; height: 40px;border-radius: 5px;background: transparent;border: 1px solid #ccc;outline: none;padding: 0 20px;}
+			button:hover{background: #2e61bc;}
+			button{width: 60px;height: 42px; border: 0;border-radius: 5px;background: #2e79bc;color: #fff;font-size: 14px;margin:30px;outline: none;}
+			#but0{margin-left: 12px;}
+			#xuan{position: relative;top:-560px;}
+		</style>
+	</head>
+	
+	<body>
+		<div id="box">
+			<canvas id="myCanvas" width="500px" height="500px"></canvas>
+			<div id="xfang">
+				<div id="one1"></div>
+				<div id="two2"></div>
+			</div>
+			
+			<ul id="hen">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+			<ul id="shu">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+			<div id="xuan">
+			<button>向上</button>
+			<button>向下</button>	
+			<button>向左</button>	
+			<button>向右</button>	
+			<input type="text" value="输入坐标，以逗号隔开。如：3,5"/>
+			<button id="but0">Go</button>
+			</div>
+		</div>
+	</body>
+</html>
