@@ -26,8 +26,10 @@
 					var lil=document.getElementsByTagName("li");
 					var Txt=document.getElementById("Txt").value;
 					var reg = new RegExp(Txt);	//定义reg正则:构造函数
+							
 					for(var i=0;i<lil.length;i++){
-						 if(reg.test(lil[i].innerHTML)){
+						lil[i].className = "lione";
+						if(reg.test(lil[i].innerHTML)){
 						 	lil[i].className = "twone";
 						} 
 					}	
