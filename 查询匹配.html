@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查询匹配</title>
+		<script>
+			window.onload = function(){
+				var but=document.getElementsByTagName("button");
+				var tear=document.getElementById("tear");
+				//var Txt = document.getElementById("Txt");
+				//var uli = document.getElementById("uli");
+				but[0].onclick = function(){
+					var reg = /(?!\s)(\w)*(?=\s)/g;//写个正则累死我！~！！！
+					var wb = tear.value;
+					var gb = wb.match(reg);
+					for(let i=0;i<gb.length;i++){
+						var uli = document.getElementById("uli");
+						var xd = document.createElement("li");
+						xd.className = "lione";
+						xd.innerHTML = gb[i];
+						uli.appendChild(xd);
+					}
+				}
+				
+				but[1].onclick = function(){
+					var lil=document.getElementsByTagName("li");
+					var Txt=document.getElementById("Txt").value;
+					var reg = new RegExp(Txt);	//定义reg正则:构造函数
+					for(var i=0;i<lil.length;i++){
+						 if(reg.test(lil[i].innerHTML)){
+						 	lil[i].className = "twone";
+						} 
+					}	
+				}
+			}
+		</script>
+		<style>
+			#box{width: 400px;margin: 100px auto;}
+			button{margin-left: 25px;}
+			textarea{padding: 10px;font-size: 16px;}
+			ul{width: 600px;margin:auto;height: 400px;}
+			.lione{background: red;color: #FFFFFF;float: left;padding:7px 13px;list-style: none;margin: 10px;}
+			.twone{background: green;color: #FFFFFF;float: left;padding:7px 13px;list-style: none;margin: 10px;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<textarea cols="42" rows="5" id="tear">colours school animals bear girl uncle man bread salad colours school animals bear girl uncle man bread salad</textarea>
+			<input type="text" id="Txt" value="a"/>
+			<button>插入文本</button>
+			<button>查询文本</button>
+			
+		</div>
+		<ul id="uli">
+		</ul>
+	</body>
+</html>
