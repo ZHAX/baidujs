@@ -17,13 +17,12 @@
 				}
 				but2.onclick = function(){sem()}
 				box.onclick = function(){sem()}
-			}
-				
-			function sem(){
-				box.style.display="none";
-				ybox.style.display="none";
-				box.style.zIndex = "0";
-				ybox.style.zIndex = "0";
+				function sem(){
+					box.style.display="none";
+					ybox.style.display="none";
+					box.style.zIndex = "0";
+					ybox.style.zIndex = "0";
+				}
 			}
 		</script>
 		<style>
@@ -33,7 +32,7 @@
 			
 			#hei{height: 30px;background:#202020;padding: 8px 0 0 10px ;}
 			#hei p{color: #fff;}
-			#ybox{width: 500px;height: 200px;background: #ccc;position: absolute;top:50%;left: 50%;margin: -100px 0 0 -250px;display: none;box-shadow: 0px 5px 15px #888;}
+			#ybox{width: 500px;height: 200px;background: #ccc;position:fixed;top:50%;left: 50%;margin: -100px 0 0 -250px;display: none;box-shadow: 0px 5px 15px #888;}
 			#but2{position: relative;left: -370px;}
 			button{width: 260px;height: 42px; border: 0;border-radius: 5px;background: #2e79bc;color: #fff;font-size: 14px;margin:100px 500px;}
 			button:hover{background: #2e61bc;}
