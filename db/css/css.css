@@ -1,0 +1,27 @@
+*{padding: 0;margin: 0;font-family: "微软雅黑";}body{background: #fafafa;}
+a{text-decoration:none;out-line: none;color: #000;}
+#box{width: 600px;height: 300px;position: fixed;top:35%;left: 50%;margin: -150px 0 0 -300px;}
+#jindu{background: #dadada;width: 430px;height: 1px;position: relative;top:150px;overflow: hidden;}
+#jindu1{background: #6bbd7a;width: 1px;height: 1px;}
+#bia{font-weight: 400;position: relative;top:50px;font-size: 24px;}
+#zuoz{color: #4a4a4a;font-size: 13px;position: relative;top:55px;left:2px;}
+#jds{position: relative;top:75px;width: 430px;}
+#tim{color: #a2a2a2;font-size: 12px;float: left;}
+#yl{float: left;margin: -3px 0 0 10px;cursor:pointer;}
+#yl img{width: 13px;}
+#ci img{width: 22px;}
+#xz img,#fen img{width: 15px;}
+#sjh{position: relative;left:245px;top:-6px;}
+#ci{position: relative;top:3px;cursor:pointer;}
+#xz{position: relative;left:30px;cursor:pointer;}
+#fen{position: relative;left:60px;cursor:pointer;}
+#jdx{position: relative;top:120px;}
+#aix1 img,#aix2 img{width: 25px;}
+#aix1{margin-right: 35px;cursor:pointer;}
+#aix2{margin-right: 225px;cursor:pointer;}
+#aix3{margin:1px 60px 0 0;cursor:pointer;}
+#aix3 img{width: 20px;}
+#aix4 img{width: 22px;cursor:pointer;}
+#toux{width: 220px;height: 220px;overflow: hidden;border-radius:50% ;position: relative;top:-70px;left: 460px;}
+#toux img{width: 355px;}
+#bud{display: none;}
