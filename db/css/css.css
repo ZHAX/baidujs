@@ -1,6 +1,6 @@
-*{padding: 0;margin: 0;font-family: "微软雅黑";}body{background: #fafafa;}
+*{padding: 0;margin: 0;font-family: "微软雅黑";}
 a{text-decoration:none;out-line: none;color: #000;}
-#box{width: 600px;height: 300px;position: fixed;top:35%;left: 50%;margin: -150px 0 0 -300px;}
+#box{width: 770px;height: 290px;position: fixed;top:35%;left: 50%;margin: -150px 0 0 -430px;background: #fafafa;padding-left:80px ;box-shadow: 0px 2px 10px #888;;}
 #jindu{background: #dadada;width: 430px;height: 1px;position: relative;top:150px;overflow: hidden;}
 #jindu1{background: #6bbd7a;width: 1px;height: 1px;}
 #bia{font-weight: 400;position: relative;top:50px;font-size: 24px;}
@@ -25,3 +25,29 @@ a{text-decoration:none;out-line: none;color: #000;}
 #toux{width: 220px;height: 220px;overflow: hidden;border-radius:50% ;position: relative;top:-70px;left: 460px;}
 #toux img{width: 355px;}
 #bud{display: none;}
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100px;
+    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}  
+input[type=range]::-webkit-slider-runnable-track {
+    height: 2px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+   background: #979797;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+   /*-webkit-appearance: none;
+    height: 0px;
+    width: 0px;
+    margin-top: -5px; 
+    background: #ffffff; 
+    border-radius: 50%;
+    border: solid 0.125em rgba(205, 224, 230, 0.5);
+    box-shadow: 0 .125em .125em #3b4547; */
+}

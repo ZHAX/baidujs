@@ -2,71 +2,39 @@ window.onload = function(){
 	var aix3 = document.getElementById("aix3");
 	var bud = document.getElementById("bud");
 	var imgd = document.getElementsByTagName("img");
-	aix3.onclick = function(){aixc(1);}					//点击事件
-	aix3.onmouseover = function(){aixcOver(true);}		//true、代表的鼠标进入事件
-	aix3.onmouseout = function(){aixcOver(false);}		//false、代表的鼠标离开事件
 	var bia =document.getElementById("bia");
 	var zuoz =document.getElementById("zuoz");
+	aix3.onclick = function(){aixc(1);}
+	aix3.onmouseover = function(){aixcOver(true);}
+	aix3.onmouseout = function(){aixcOver(false);}
 	bia.onmouseover = function(){biaFun(true,this);}
 	bia.onmouseout = function(){biaFun(false,this);}
 	zuoz.onmouseover = function(){biaFun(true,this);}
 	zuoz.onmouseout = function(){biaFun(false,this);}
+	imgd[0].onclick =function(){imgd5F(this);}
 	imgd[1].onmouseover = function(){imgdFun(this,"词2");}
 	imgd[1].onmouseout = function(){imgdFun(this,"词1");}
 	imgd[2].onmouseover = function(){imgdFun(this,"下载2");}
 	imgd[2].onmouseout = function(){imgdFun(this,"下载1");}
 	imgd[3].onmouseover = function(){imgdFun(this,"分享2");}
 	imgd[3].onmouseout = function(){imgdFun(this,"分享1");}
+	imgd[4].onclick = function(){imgd4F(this);}
 	imgd[5].onmouseover = function(){imgdFun(this,"删除2");}
 	imgd[5].onmouseout = function(){imgdFun(this,"删除1");}
 	imgd[7].onmouseover = function(){imgdFun(this,"下一曲2");}
 	imgd[7].onmouseout = function(){imgdFun(this,"下一曲1");}
-	imgd[4].onclick = function(){imgd4F(this);}
-	imgd[0].onclick =function(){imgd5F(this);}
-}
+	}				//onload结束
 
-	function imgdFun(ac,cv){
-			ac.src = "img/"+cv+".png";
-	}
-	var ddz =true;
-	function imgd4F(ac){
-		if(ddz){
-			ac.src = "img/爱心2.png";
-			ddz =false;
-		}else{
-			ac.src="img/爱心1.png";
-			ddz = true;
-		}
-	}
-	var zzd =true;
-	function imgd5F(ac){
-		if(zzd){
-			ac.src = "img/静音2.png";
-			bud.muted=true;
-			zzd =false;
-		}else{
-			ac.src="img/音量2.png";
-			bud.muted=false;
-			zzd = true;
-		}
-	}
-	function biaFun(ad,da){
-		if(ad){
-			da.style.borderBottom ="1px solid #000";
-		}else{
-			da.style.borderBottom = "0";
-		}
-	}
-	var cld = null;
+
 	function timed(){
 		var tim = document.getElementById("tim");	//剩余时间innhtml
 		var zt = Math.floor(bud.duration);			//总的视频时长
 		var jindu1 = document.getElementById("jindu1");
 		cld = setInterval(function(){
-			var sy =Math.floor(bud.currentTime);		//已经播放的时间!
+			var sy =Math.floor(bud.currentTime);	//已经播放的时间!
 			var syss =sy/zt;						//剩余的时间除于总时间，得到百分比
-			var dd = Math.floor((zt-sy)/60);			//分钟
-			var ss = Math.floor((zt-sy)%60);			//秒
+			var dd = Math.floor((zt-sy)/60);		//分钟
+			var ss = Math.floor((zt-sy)%60);		//秒
 			if(dd<10){
 				dd = "0"+dd;
 			};
@@ -108,3 +76,34 @@ window.onload = function(){
 		}		
 		
 	}
+	function imgdFun(ac,cv){
+		ac.src = "img/"+cv+".png";			//经过和离开事件经过这个函数
+	}
+	var ddz =true;
+	var zzd =true;
+	var cld = null;
+	function imgd4F(ac){
+		if(ddz){
+			ac.src = "img/爱心2.png";
+			ddz =false;
+		}else{
+			ac.src="img/爱心1.png";
+			ddz = true;
+		}}
+	function imgd5F(ac){
+		if(zzd){
+			ac.src = "img/静音2.png";
+			bud.muted=true;
+			zzd =false;
+		}else{
+			ac.src="img/音量2.png";
+			bud.muted=false;
+			zzd = true;
+		}}
+	function biaFun(ad,da){
+		if(ad){
+			da.style.borderBottom ="1px solid #000";
+		}else{
+			da.style.borderBottom = "0";
+		}}
+	
